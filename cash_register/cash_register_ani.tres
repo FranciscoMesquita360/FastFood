@@ -1,0 +1,15 @@
+[gd_resource type="SpriteFrames" load_steps=5 format=2]
+
+[ext_resource path="res://cash_register/cash_register_00.png" type="Texture" id=1]
+[ext_resource path="res://cash_register/cash_register_01.png" type="Texture" id=2]
+[ext_resource path="res://cash_register/cash_register_02.png" type="Texture" id=3]
+[ext_resource path="res://cash_register/cash_register_03.png" type="Texture" id=4]
+
+[resource]
+animations = [ {
+"frames": [ ExtResource( 1 ), ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ) ],
+"loop": true,
+"name": "cash",
+"speed": 5.0
+} ]
+

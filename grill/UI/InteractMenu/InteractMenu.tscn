@@ -1,0 +1,86 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://grill/UI/InteractMenu/InteractMenu.gd" type="Script" id=1]
+[ext_resource path="res://grill/UI/InteractMenu/Text.gd" type="Script" id=2]
+[ext_resource path="res://Theme/theme.tres" type="Theme" id=3]
+[ext_resource path="res://grill/UI/InteractMenu/raw_meat_icon.png" type="Texture" id=4]
+[ext_resource path="res://grill/UI/InteractMenu/cook_icon.png" type="Texture" id=5]
+[ext_resource path="res://UI/cancel_icon.png" type="Texture" id=6]
+[ext_resource path="res://grill/UI/InteractMenu/clear_icon.png" type="Texture" id=7]
+
+[node name="InteractMenu" type="Position2D"]
+visible = false
+scale = Vector2( 0.6, 0.6 )
+script = ExtResource( 1 )
+red = Color( 1, 0, 0, 1 )
+yellow = Color( 0.968627, 1, 0, 1 )
+
+[node name="Text" type="Label" parent="."]
+visible = false
+margin_left = -102.424
+margin_top = -59.4962
+margin_right = -62.4239
+margin_bottom = -45.4962
+rect_scale = Vector2( 2, 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "3"
+align = 1
+valign = 1
+script = ExtResource( 2 )
+red = Color( 1, 0, 0, 1 )
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -97.0
+margin_top = -28.5
+margin_right = 97.0
+margin_bottom = 28.5
+focus_mode = 1
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme = ExtResource( 3 )
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+size_flags_horizontal = 2
+size_flags_vertical = 2
+
+[node name="MeatButton" type="Button" parent="MarginContainer/HBoxContainer"]
+visible = false
+margin_right = 50.0
+margin_bottom = 50.0
+focus_mode = 1
+size_flags_horizontal = 4
+size_flags_vertical = 4
+enabled_focus_mode = 1
+icon = ExtResource( 4 )
+clip_text = true
+
+[node name="CookButton" type="Button" parent="MarginContainer/HBoxContainer"]
+visible = false
+margin_right = 50.0
+margin_bottom = 51.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+icon = ExtResource( 5 )
+
+[node name="CancelButton" type="Button" parent="MarginContainer/HBoxContainer"]
+visible = false
+margin_right = 50.0
+margin_bottom = 50.0
+icon = ExtResource( 6 )
+clip_text = true
+
+[node name="ClearButton" type="Button" parent="MarginContainer/HBoxContainer"]
+visible = false
+margin_right = 50.0
+margin_bottom = 50.0
+icon = ExtResource( 7 )
+
+[connection signal="visibility_changed" from="." to="." method="_on_InteractMenu_visibility_changed"]
+[connection signal="button_down" from="MarginContainer/HBoxContainer/MeatButton" to="." method="_on_MeatButton_button_down"]
+[connection signal="button_down" from="MarginContainer/HBoxContainer/CookButton" to="." method="_on_CookButton_button_down"]
+[connection signal="button_down" from="MarginContainer/HBoxContainer/CancelButton" to="." method="_on_CancelButton_button_down"]
+[connection signal="button_down" from="MarginContainer/HBoxContainer/ClearButton" to="." method="_on_ClearButton_button_down"]

@@ -1,0 +1,57 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://grill/GrillBody/GrillBody.gd" type="Script" id=1]
+[ext_resource path="res://grill/GrillBody/grill_board_clear.png" type="Texture" id=2]
+[ext_resource path="res://grill/GrillBody/Meat/meat_raw.png" type="Texture" id=3]
+[ext_resource path="res://grill/GrillBody/clam_closed.png" type="Texture" id=4]
+[ext_resource path="res://grill/GrillBody/smoke/smoke.tscn" type="PackedScene" id=5]
+[ext_resource path="res://grill/GrillBody/clam_open.png" type="Texture" id=6]
+[ext_resource path="res://grill/GrillBody/grill_body.png" type="Texture" id=7]
+
+[node name="GrillBody" type="Position2D"]
+z_index = -2
+script = ExtResource( 1 )
+not_selected_color = Color( 1, 1, 1, 1 )
+selected_color = Color( 0.984314, 0.988235, 0.905882, 1 )
+
+[node name="Area2D" type="Area2D" parent="."]
+monitoring = false
+monitorable = false
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
+polygon = PoolVector2Array( -7.6741, 56.9508, 52.7968, 19.2258, 53.0742, -4.62967, 7.85971, -30.9817, -53.166, 4.5242, -53.166, 30.5988 )
+
+[node name="grill_board" type="Sprite" parent="."]
+texture = ExtResource( 2 )
+
+[node name="meat" type="Sprite" parent="."]
+visible = false
+position = Vector2( -25.2687, 9.71069 )
+texture = ExtResource( 3 )
+
+[node name="clam_closed" type="Sprite" parent="."]
+visible = false
+position = Vector2( -0.672, -7.096 )
+texture = ExtResource( 4 )
+
+[node name="smoke" parent="clam_closed" instance=ExtResource( 5 )]
+position = Vector2( -45.2947, -5.78955 )
+
+[node name="smoke2" parent="clam_closed" instance=ExtResource( 5 )]
+position = Vector2( -32.3533, -14.9846 )
+
+[node name="smoke3" parent="clam_closed" instance=ExtResource( 5 )]
+position = Vector2( -11.5791, -26.9044 )
+
+[node name="smoke4" parent="clam_closed" instance=ExtResource( 5 )]
+position = Vector2( 7.15182, -33.7155 )
+
+[node name="clam_open" type="Sprite" parent="."]
+position = Vector2( 3.48019, -10.0629 )
+texture = ExtResource( 6 )
+
+[node name="grill_body" type="Sprite" parent="."]
+position = Vector2( 0, 24 )
+texture = ExtResource( 7 )
+
+[connection signal="input_event" from="Area2D" to="." method="_on_Area2D_input_event"]

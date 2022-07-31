@@ -1,0 +1,112 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://keeper fries/KeeperFries.gd" type="Script" id=1]
+[ext_resource path="res://keeper fries/keeper_fries.png" type="Texture" id=2]
+[ext_resource path="res://keeper fries/light.png" type="Texture" id=3]
+[ext_resource path="res://keeper fries/fries_grid_vertical.png" type="Texture" id=4]
+[ext_resource path="res://keeper fries/fries.png" type="Texture" id=5]
+[ext_resource path="res://UI/ProgressBar/ProgressBar.tscn" type="PackedScene" id=6]
+
+[node name="KeeperFries" type="Position2D"]
+position = Vector2( -13.9668, 4.41055 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_vertical_guides_": [  ]
+}
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2( 19.395, -7.53502 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
+polygon = PoolVector2Array( -64.2431, 55.3306, -64.7834, -1.40726, -1.56128, -38.1517, 64.3627, -1.40726, 65.4434, 54.2498, 0.600159, 92.075 )
+
+[node name="keeper_fries" type="Sprite" parent="."]
+position = Vector2( 19.395, -7.53502 )
+texture = ExtResource( 2 )
+
+[node name="Light2D" type="Light2D" parent="keeper_fries"]
+position = Vector2( -20.8387, -2.07358 )
+scale = Vector2( 0.4, 0.4 )
+texture = ExtResource( 3 )
+texture_scale = 1.76
+energy = 0.8
+
+[node name="Light2D2" type="Light2D" parent="keeper_fries"]
+position = Vector2( -44.5555, -12.0874 )
+scale = Vector2( 0.4, 0.4 )
+texture = ExtResource( 3 )
+texture_scale = 1.76
+energy = 0.8
+
+[node name="Light2D3" type="Light2D" parent="keeper_fries"]
+position = Vector2( 6.56738, 9.78479 )
+scale = Vector2( 0.4, 0.4 )
+texture = ExtResource( 3 )
+texture_scale = 1.76
+energy = 0.8
+
+[node name="Light2D4" type="Light2D" parent="keeper_fries"]
+position = Vector2( 30.5477, -2.60065 )
+scale = Vector2( 0.4, 0.4 )
+texture = ExtResource( 3 )
+texture_scale = 1.76
+energy = 0.8
+
+[node name="Light2D5" type="Light2D" parent="keeper_fries"]
+position = Vector2( 52.4199, -13.932 )
+scale = Vector2( 0.4, 0.4 )
+texture = ExtResource( 3 )
+texture_scale = 1.76
+energy = 0.8
+
+[node name="fries_grid_vertical" type="Sprite" parent="keeper_fries"]
+position = Vector2( -30.2775, 1.43919 )
+texture = ExtResource( 4 )
+
+[node name="fries3" type="Sprite" parent="keeper_fries/fries_grid_vertical"]
+position = Vector2( 9.75024, -5.2704 )
+texture = ExtResource( 5 )
+
+[node name="fries2" type="Sprite" parent="keeper_fries/fries_grid_vertical"]
+position = Vector2( 1.84467, -0.790558 )
+texture = ExtResource( 5 )
+
+[node name="fries" type="Sprite" parent="keeper_fries/fries_grid_vertical"]
+position = Vector2( -7.11505, 3.9528 )
+texture = ExtResource( 5 )
+
+[node name="fries6" type="Sprite" parent="keeper_fries/fries_grid_vertical"]
+position = Vector2( 21.3933, -0.138199 )
+texture = ExtResource( 5 )
+
+[node name="fries5" type="Sprite" parent="keeper_fries/fries_grid_vertical"]
+position = Vector2( 12.9247, 4.70786 )
+texture = ExtResource( 5 )
+
+[node name="fries4" type="Sprite" parent="keeper_fries/fries_grid_vertical"]
+position = Vector2( 3.64139, 10.4269 )
+texture = ExtResource( 5 )
+
+[node name="fries9" type="Sprite" parent="keeper_fries/fries_grid_vertical"]
+position = Vector2( 31.7805, 6.1449 )
+texture = ExtResource( 5 )
+
+[node name="fries8" type="Sprite" parent="keeper_fries/fries_grid_vertical"]
+position = Vector2( 23.6243, 11.6504 )
+texture = ExtResource( 5 )
+
+[node name="fries7" type="Sprite" parent="keeper_fries/fries_grid_vertical"]
+position = Vector2( 14.2445, 16.5441 )
+texture = ExtResource( 5 )
+
+[node name="ProgressBar" parent="." instance=ExtResource( 6 )]
+visible = false
+margin_left = -15.4369
+margin_top = -82.3303
+margin_right = 34.5631
+margin_bottom = -68.3303
+
+[connection signal="click_on" from="." to="." method="_on_KeeperFries_click_on"]
+[connection signal="visibility_changed" from="." to="." method="_on_KeeperFries_visibility_changed"]
+[connection signal="input_event" from="Area2D" to="." method="_on_Area2D_input_event"]
+[connection signal="bar_filled" from="ProgressBar" to="." method="_on_ProgressBar_bar_filled"]

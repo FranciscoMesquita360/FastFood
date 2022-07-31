@@ -1,0 +1,26 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://UI/Text/Text.gd" type="Script" id=1]
+
+[node name="Text" type="Position2D"]
+scale = Vector2( 2, 2 )
+script = ExtResource( 1 )
+no_color = Color( 1, 1, 1, 1 )
+red = Color( 1, 0, 0, 1 )
+yellow = Color( 0, 1, 0.439216, 1 )
+gray = Color( 0.329412, 0.329412, 0.329412, 1 )
+
+[node name="Text" type="Label" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -24.0
+margin_right = 24.0
+margin_bottom = 14.0
+text = "null"
+align = 1
+valign = 1
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.1
+
+[connection signal="timeout" from="Timer" to="." method="move"]

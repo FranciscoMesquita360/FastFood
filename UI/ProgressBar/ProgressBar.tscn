@@ -1,0 +1,28 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Theme/theme.tres" type="Theme" id=1]
+[ext_resource path="res://UI/ProgressBar/ProgressBar.gd" type="Script" id=2]
+
+[node name="ProgressBar" type="ProgressBar"]
+margin_right = 50.0
+margin_bottom = 14.0
+theme = ExtResource( 1 )
+percent_visible = false
+script = ExtResource( 2 )
+red = Color( 1, 0, 0, 1 )
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="Text" type="Label" parent="."]
+visible = false
+margin_left = 4.99046
+margin_top = -14.5294
+margin_right = 44.9905
+margin_bottom = -0.529428
+theme = ExtResource( 1 )
+custom_colors/font_color = Color( 1, 0, 0, 1 )
+align = 1
+valign = 1
+
+[connection signal="value_changed" from="." to="." method="_on_ProgressBar_value_changed"]
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

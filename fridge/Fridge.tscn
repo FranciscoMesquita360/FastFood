@@ -1,0 +1,48 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://fridge/Fridge.gd" type="Script" id=1]
+[ext_resource path="res://fridge/fridge.png" type="Texture" id=2]
+[ext_resource path="res://Theme/theme.tres" type="Theme" id=3]
+[ext_resource path="res://grill/UI/InteractMenu/recharge_meat_icon.png" type="Texture" id=4]
+[ext_resource path="res://UI/ProgressBar/ProgressBar.tscn" type="PackedScene" id=5]
+[ext_resource path="res://fridge/TextPopUpHolder.gd" type="Script" id=6]
+
+[node name="Fridge" type="Position2D"]
+script = ExtResource( 1 )
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
+polygon = PoolVector2Array( 5.56476, 30.1313, 29.3381, 16.5465, 29.3381, -10.2457, -6.13325, -31.0002, -29.1519, -17.7928, -29.5292, 10.1315 )
+
+[node name="FridgeTexture" type="Sprite" parent="."]
+texture = ExtResource( 2 )
+
+[node name="Button" type="Button" parent="."]
+visible = false
+margin_left = 32.0265
+margin_top = -7.51603
+margin_right = 82.0265
+margin_bottom = 42.484
+theme = ExtResource( 3 )
+icon = ExtResource( 4 )
+
+[node name="ProgressBar" parent="." instance=ExtResource( 5 )]
+visible = false
+margin_left = -29.441
+margin_top = -56.3156
+margin_right = 20.559
+margin_bottom = -42.3156
+
+[node name="TextPopUpHolder" type="Position2D" parent="."]
+modulate = Color( 1, 0, 0, 1 )
+position = Vector2( 0.217117, -19.7808 )
+script = ExtResource( 6 )
+
+[connection signal="click_on_fridge" from="." to="." method="_on_Fridge_click_on_fridge"]
+[connection signal="fridge_empty" from="." to="TextPopUpHolder" method="_on_Fridge_fridge_empty"]
+[connection signal="meat_value_changed" from="." to="TextPopUpHolder" method="_on_Fridge_meat_value_changed"]
+[connection signal="input_event" from="Area2D" to="." method="_on_Area2D_input_event"]
+[connection signal="button_down" from="Button" to="." method="_on_Button_button_down"]
+[connection signal="bar_filled" from="ProgressBar" to="TextPopUpHolder" method="_on_ProgressBar_bar_filled"]
+[connection signal="bar_filled" from="ProgressBar" to="." method="_on_ProgressBar_bar_filled"]
