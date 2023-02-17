@@ -42,6 +42,7 @@ script = ExtResource( 7 )
 
 [node name="Resources" parent="Camera2D" instance=ExtResource( 8 )]
 position = Vector2( 509.013, -295.248 )
+
 [connection signal="meat_value_changed" from="Restaurant/Furniture/Fridge" to="Camera2D/Resources" method="_on_Fridge_meat_value_changed"]
 [connection signal="value_orders_changed" from="Restaurant/Furniture/cash_register" to="Camera2D/Resources" method="_on_cash_register_value_orders_changed"]
 [connection signal="meats_variables_changed" from="Restaurant/Furniture/Grill" to="Camera2D/Resources" method="_on_Grill_meats_variables_changed"]

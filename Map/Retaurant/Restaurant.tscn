@@ -23,4 +23,3 @@ mode = 1
 tile_set = ExtResource( 1 )
 cell_size = Vector2( 97, 56 )
 format = 1
-

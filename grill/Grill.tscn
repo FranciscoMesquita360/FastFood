@@ -22,7 +22,7 @@ margin_bottom = -52.5855
 yellow = Color( 0.960784, 0.921569, 0, 1 )
 
 [node name="GrillBody" parent="." instance=ExtResource( 3 )]
-position = Vector2( -3.05176e-005, 0 )
+position = Vector2( -3.05176e-05, 0 )
 z_index = 0
 selected_color = Color( 0.827451, 1, 0, 1 )
 
